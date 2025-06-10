@@ -2,6 +2,7 @@ import express from "express"
 import { BookRouter } from "./routes/library_routes.js"
 import mongoose from "mongoose"
 import "dotenv/config"
+import cors from cors
 
 
 
@@ -17,6 +18,7 @@ await mongoose.connect(mongouri)
 
 
 app.use(express.json())
+app.use(cors())
 
 app.use(BookRouter)
 
