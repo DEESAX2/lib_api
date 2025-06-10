@@ -11,7 +11,7 @@ const app = express()
 const mongouri = process.env.MONGO_URI
 mongoose.connect(mongouri)
 
-const PORT = 7078
+const PORT = process.env.PORT || 7070;
 
 await mongoose.connect(mongouri)
 
