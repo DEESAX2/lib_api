@@ -51,7 +51,7 @@ export const getOneBook = async (req, res) => {
   try {
     const getOneBook = await Book.findById(id);
     if (!getOneBook) {
-      res.status(404).json({ error: error.message })
+      res.status(404).json({ error: `this ID does not exist, please enter the right ID ${id}`})
     } return res.status(200).json(getOneBook);
   } catch (error) {
     res.status(500).json({ error: error.message })
@@ -84,7 +84,7 @@ export const deleteBook = async (req, res) => {
   try {
     const deleteBook = await Book.findByIdAndDelete(id);
     if (!deleteBook) {
-      res.status(404).json({ error: error.message})
+      res.status(404).json({ error: `this ID Does not exist ${id}`})
     } return res.status(200).json(deleteBook);
   } catch (error) {
     res.status(500).json({ error: error.message })
