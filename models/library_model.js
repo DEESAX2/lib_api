@@ -1,6 +1,6 @@
 
 import{ Schema, model, trusted } from "mongoose"; 
-
+import normalize from "normalize-mongoose"
 // books field 
 
 const bookSchema = new Schema({
@@ -27,4 +27,4 @@ const bookSchema = new Schema({
     }
 }, {timestamps: true})
 
-export const Book = model('Books', bookSchema);
+export const Book = model('Books', bookSchema.plugin(normalize));
